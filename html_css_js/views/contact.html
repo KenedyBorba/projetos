@@ -1,20 +1,24 @@
 <h1>Contact</h1>
-<form action="/action_page.php">
+<form action="#">
     <div class="form-group">
-        <label for="nome">Nome:</label>
-        <input type="text" class="form-control">
+        <label for="name">Nome:</label>
+        <input id="name" type="text" class="form-control">
     </div>
     <div class="form-group">
-        <label for="nome">Email:</label>
-        <input type="text" class="form-control">
+        <label for="email">Email:</label>
+        <input id="email" type="text" class="form-control">
     </div>
     <div class="form-group">
-        <label for="nome">Telefone:</label>
-        <input type="text" class="form-control">
+        <label for="telefone">Telefone:</label>
+        <input id="telefone" type="text" class="form-control">
     </div>
     <div class="form-group">
-        <label for="nome">Assunto:</label>
-        <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+        <label for="cep">CEP:</label>
+        <input id="cep" type="text" class="form-control">
     </div>
-    <button type="submit" style="background-color:chocolate; color: #ffffff" class="btn">Enviar</button>
+    <div class="form-group">
+        <label for="subject">Assunto:</label>
+        <textarea class="form-control" id="subject" cols="30" rows="10"></textarea>
+    </div>
+    <button type="submit" style="background-color:chocolate; color: #ffffff" class="btn" id="btnContact">Enviar</button>
 </form>

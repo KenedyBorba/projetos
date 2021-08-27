@@ -83,5 +83,42 @@ function about() {
 }
 
 function contact() {
-    $('section').load('views/contact.html');
+    $('section').load('views/contact.html', function () {
+        $('#btnContact').click(function () {
+            let name = $('#name').val();
+            let email = $('#email').val();
+            let telefone = $('#telefone').val();
+            let cep = $('#cep').val();
+            let subject = $('#subject').val();
+
+            getLocal(cep, function (local) {
+                let contact = new Contact(name, email, telefone, cep, subject, local)
+                $('section').load('views/contactView.html', function () {
+                    $('#name').html(contact.name);
+                    $('#email').html(contact.email);
+                    $('#telefone').html(contact.telefone);
+                    $('#subject').html(contact.subject);
+                    $('#local').html(contact.local);
+                });
+            });
+        });
+    });
+};
+
+class Contact {
+    constructor(_name, _email, _telefone, _cep, _subject, _local) {
+        this.name = _name;
+        this.email = _email;
+        this.telefone = _telefone;
+        this.cep = _cep;
+        this.subject = _subject;
+        this.local = _local;
+    }
+}
+
+function getLocal(cep, callBack) {
+    $.getJSON('https://viacep.com.br/ws/' + cep + '/json', function (data) {
+        console.log(data.localidade);
+        return callBack(data.localidade);
+    })
 }
